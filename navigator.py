@@ -10,7 +10,7 @@ try:
 except:
     from quanser.communications import Timeout
 from pal.utilities.stream import BasicStream
-from pal.utilities.timing import Timer
+from pal.utilities.timing import QTimer
 from pal.utilities.math import SignalGenerator
 from pal.utilities.vision import Camera2D, Camera3D
 # endregion 
@@ -39,7 +39,8 @@ realsense = Camera3D(deviceId="0@tcpip://localhost:18986",
                      frameRateRGB=frameRate, 
                      frameWidthDepth=640, 
                      frameHeightDepth=480, 
-                     frameRateDepth=frameRate)
+                     frameRateDepth=frameRate,
+                     readMode=0)
 
 camRight = Camera2D(cameraId="0@tcpip://localhost:18982", 
                    frameWidth=640, frameHeight=480, 
@@ -80,7 +81,7 @@ cmd_z = next(wave3)
 # endregion
 
 # Initialize timer
-timer = Timer(frequency, simulationTime)
+timer = QTimer(frequency, simulationTime)
 
 try:
     while timer.check():
@@ -122,16 +123,12 @@ try:
             
             # read cameras when available
             if counter%CameraCounts == 0:
-                frames = False
                 frameLeft = camLeft.read()
                 frameRight = camRight.read()
                 frameBack = camBack.read()
                 frameDown = camDown.read()
-
                 realsense.read_RGB()
                 realsense.read_depth() 
-
-                # NOTE: depth data imageDepth, gives 0-255 values mapped to 0-9.44 meters
 
                 if frameLeft or frameRight or frameBack or frameDown:
 
@@ -141,6 +138,7 @@ try:
                     imageDown = camDown.imageData
                     imageRGB = realsense.imageBufferRGB
                     imageDepth = realsense.imageBufferDepthPX 
+                    # NOTE: depth data imageDepth, gives 0-255 values mapped to 0-9.44 meters
 
                     cv2.imshow("Left Drone Image", imageLeft)
                     cv2.imshow("Right Drone Image", imageRight)
