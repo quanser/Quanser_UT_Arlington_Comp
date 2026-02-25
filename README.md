@@ -108,18 +108,18 @@ If your QDrone2 is unstable when running our provided navigator files, it probab
 
 3. Click on QDrone and select the Warehouse Workspace.
 
-    <img src="docs/images/selectWorkspace.png" width="300">
+    <img src="docs/images/selectWorkspace.png" width="400">
 
 4. With the Warehouse Workspace now opened, click on settings. Activate show comms per second and show frames per second. Click on Advanced Settings.
 
-    <img src="docs/images/warehouseSettings.png" width="300">
+    <img src="docs/images/warehouseSettings.png" width="500">
 
 5. Under advanced settings, disable `Use main menu default` at the top. In Advanced Graphics Options 
     - Select LOW
     - Turn replace the 15 in the framerate limit from 15 to 30. The Advanced Graphics Options should now show Custom. 
     - Make sure Enable framerate limit is still turned on.  
 
-        <img src="docs/images/warehouseAdvanced.png" width="300">
+        <img src="docs/images/warehouseAdvanced.png" width="500">
 
 6. Exit the workspace and close Quanser Interactive Labs. 
 
