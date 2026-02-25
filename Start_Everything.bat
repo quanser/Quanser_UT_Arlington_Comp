@@ -14,7 +14,8 @@ python spawn_qdrone2.py
 
 TIMEOUT /T 2
 
-start "Virtual QDrone Model" "quarc_run" -r virtual_FlightStack.rt-win64 -uri tcpip://localhost:17002
+start "Virtual QDrone Model" "quarc_run" -D -r -t tcpip://localhost:17000  virtual_FlightStack.rt-win64 -uri tcpip://localhost:17002
 
 TIMEOUT /T 10
 
+ 

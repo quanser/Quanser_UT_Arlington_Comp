@@ -2,12 +2,22 @@
 
 ## Getting Started
 
+### If you are going to use Python and not MATLAB/Simulink
+
+These instructions are not relevant if you are planning on using Simulink.
+
+Download Quanser Interactive Labs from https://qlabs.quanserdocs.com/en/latest/Get%20Started.html .
+
+Run the exe file you just downloaded to install Quanser Interactive Labs. 
+
+## Downloading Quanser's Resources
+
 Start by downloading the resources and setting up your computer using the [Quanser Academic Resources](https://github.com/quanser/Quanser_Academic_Resources) repository.
-Make sure to follow the instructions in the `Setting Up Your Computer` Section in that repo.
+Make sure to follow the instructions in the `Setting Up Your Computer` Section in that repository. ***Please skip any instructions on downloading Quanser Interactive Labs***.
 
 > [!NOTE]
 > **DO NOT FOLLOW ANY OF THE INSTRUCTIONS OF DOWNLOADING QUANSER INTERACTIVE LABS, FOLLOW THE INSTRUCTIONS IN THIS README INSTEAD**  
-> The section [How to Download Quanser Interactive Labs](#qlabs) has the specific instructions for this.
+> Later in this guide there will be instructions on downloading Quanser Interactive Labs.
 
 You should now have a `C:/Users/user/Documents/Quanser` folder with all of our resources.
 
@@ -46,6 +56,8 @@ Note that this download is necessary but done only to get the Quanser blocks for
     
 #### If you are using Python:
 
+Even after following the instructions at the top of the page for Python users, you still need to follow the instructions below.
+
 1.  Download the latest Quanser Interactive Labs [from here](https://quanserinc.box.com/shared/static/1jqs60lq2hpebu55c7btbqo5wgrf8zgm.zip).
 
 2.  Unzip the folder and move the complete folder (QLabs) inside the folder you created `C:/Users/user/Documents/Quanser/Arlington_Competition`.
@@ -72,7 +84,7 @@ Note that this download is necessary but done only to get the Quanser blocks for
     - It will initialize the Drone models that will receive commands to fly the drone. 
     - The drone will take flight and hover around the [0,0,1] location in the world.
 
-4. Using Simulink or Python, click run on your opened file. The existing examples will move the QDrone slowly in X,Y,Z as defined by the existing sine waves.
+4. Using Simulink or Python, click run on your opened Navigator file. The existing examples will move the QDrone slowly in X,Y,Z as defined by the existing sine waves. If your drone goes unstable, please refer to the next section. 
     - Both files run at 200Hz and display cameras at 30Hz.
     - Both files take drone commands. In Simulink they are the `Drone Cmds` in the `DroneStack Comms` block. In Python, there is `cmd_x,cmd_y,cmd_z,cmd_yaw`.
     - Both files will display the following cameras: left, right, back, downward, RealSense RGB and RealSense Depth.
@@ -84,3 +96,31 @@ Note that this download is necessary but done only to get the Quanser blocks for
     - From your `Arlington_Competition` folder, run CleanUp.bat.  
     - Close Quanser Interactive Labs.
 
+## If your QDrone is unstable
+
+If your QDrone2 is unstable when running our provided navigator files, it probably is because Quanser Interactive Labs (qlabs) is pushing your graphics card too much. Follow these instructions to fix that.
+
+1. In `QLabs` folder. Double click on `Quanser Interactive Labs.exe`, this will log you in and show you the first page of the application. 
+
+2. Click on `Settings` on the top right and turn on `Show advanced options`
+
+    <img src="docs/images/qlabs_enable_advanced.png" width="300">
+
+3. Click on QDrone and select the Warehouse Workspace.
+
+    <img src="docs/images/selectWorkspace.png" width="300">
+
+4. With the Warehouse Workspace now opened, click on settings. Activate show comms per second and show frames per second. Click on Advanced Settings.
+
+    <img src="docs/images/warehouseSettings.png" width="300">
+
+5. Under advanced settings, disable `Use main menu default` at the top. In Advanced Graphics Options 
+    - Select LOW
+    - Turn replace the 15 in the framerate limit from 15 to 30. The Advanced Graphics Options should now show Custom. 
+    - Make sure Enable framerate limit is still turned on.  
+
+        <img src="docs/images/warehouseAdvanced.png" width="300">
+
+6. Exit the workspace and close Quanser Interactive Labs. 
+
+7. Go back to the previous section and try to run your files again.

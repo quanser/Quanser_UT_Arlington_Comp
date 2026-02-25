@@ -159,7 +159,7 @@ try:
             cmd_x = wave1.send(currentTime)
             cmd_y = wave2.send(currentTime)
             cmd_z = wave3.send(currentTime) + 1 # NOTE THE +1 TO KEEP THE DRONE IN THE AIR
-            cmd_yaw = math.pi/6
+            cmd_yaw = 0 # math.pi/6
             sendCommands = np.array([cmd_x, cmd_y, cmd_z, cmd_yaw])
 
             
