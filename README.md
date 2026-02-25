@@ -78,7 +78,8 @@ Even after following the instructions at the top of the page for Python users, y
     - If you are going to be using Simulink, open `Arlington_Competition/Navigator.slx`.
     - If you are going to be using Python, open `navigator.py` in your preferred development environment. We use Visual Studio Code.
 
-3. From your `Arlington_Competition` folder, run `Start_Everything.bat`.
+3. From your `Arlington_Competition` folder, run `Start_Everything_language.bat`.
+    - NOTE: The `_matlab` version only exist for students who do not have python on their system. It does the same as the `_python` version but spawns things in the workspace using a matlab file, it is significantly slower since matlab through the command line is a bit slow. Use the `_python` if you have python installed on your computer.
     - This will open Quanser Interactive Labs and load the QDrone Workspace.
     - It will create colored structures around the workspace.
     - It will initialize the Drone models that will receive commands to fly the drone. 
